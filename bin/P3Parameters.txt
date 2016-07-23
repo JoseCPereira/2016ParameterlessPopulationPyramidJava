@@ -1,0 +1,120 @@
+############################################# P3PARAMETERS.TXT #############################################
+#
+# This file sets all parameters necessary for the P3 Method.
+# This file has four parts:
+#
+#	 @P3     	 --> Set some general parameters for the P3 method such as Hill Climber type. 
+# 	 @PROBLEM -----> Define which problem to be solved.  
+#	 @STOPPER -----> Set all necessary stop criteria for each P3 run.
+#	 @OUTPUT  -----> Define what should be included in the output files (population, statistics, etc.).
+#
+#	 
+### P3 ##############
+         p3Runs = 1
+hillClimberType = 1
+
+### PROBLEM #########
+    problemType = 12
+     stringSize = 60
+     kayBipolar = 6
+       trapSize = 7
+       stepSize = 2
+    ISGDataFile = IsingSpinGlassesDataFiles/IsingSpinGlass_pm_16_190.txt             
+   bitsPerFloat = 10
+    clauseRatio = 4.27f
+
+### STOPPER #########         
+  maxIterations = 100000000
+maxFitnessCalls = -1
+ maxTimeAllowed = -1 
+     goodEnough = 1  
+      foundOnes = -1
+
+### OUTPUT #########      
+        verbose = true    
+####################
+
+
+####################
+#            
+# Here's a more lengthy explanation of the role of each parameter:
+#
+############## P3 ########## P3 ########## P3 ##############
+#
+#          p3Runs: Number of runs to perform for the same problem.
+# hillClimberType: At the moment there's only one option:
+#                     1 --> First Improvement HC
+#
+
+############# PROBLEM ########## PROBLEM ########## PROBLEM ##############
+#
+# This part of the file contains a list of all problems to be solved by P3.
+# Each problem has to be defined has a class which implements interface IProblem in the file 'Problem.java'. 
+# Some problems have specific parameters.
+#
+#	
+# UNITATION Problems
+#
+#    1 -> ONEMAX              			(stringSize = n)
+#	 2 -> LEADING-ONES					(stringSize = n)
+#	 3 -> 3-DECEPTIVE	 				(stringSize = 3*n)
+#	 4 -> K-DECEPTIVE BIPOLAR 			(stringSize = k*n, where k is an EVEN positive integer)
+#	 5 -> TRAP-K 		 				(stringSize = k*n)
+#	 6 -> STEPTRAP-K,S					(stringSize = k*n)
+#	 7 -> HIFF							(stringSize = 2^n)
+#	 8 -> HIRERARCHICAL TRAP ONE		(stringSize = 3^n)
+#	 9 -> HIRERARCHICAL TRAP TWO		(stringSize = 3^n)
+#
+#
+# NON UNITATION Problems
+#
+#	10 -> ISING-SPIN-GLASSES  			(stringSize = n^2)
+#	11 -> DISCRETIZED-RASTRIGIN			(stringSize = bitsPerFloat*n)
+#	12 -> MAXSAT						(stringSize = n)
+#	13 -> NEAREST-NEIGHBOR-NK			(stringSize = ??)              // NOT YET IMPLEMENTED!!
+#
+#
+#    Problem type: Choose an option for 'problem' from the menu
+#      stringSize: Set the 'stringSize' in accordance with the chosen problem
+#      kayBipolar: Size of each bipolar trap. 'kayBipolar' must be even.       This is only for the K-DECEPTIVE BIPOLAR problems.
+#        trapSize: Size of each deceptive trap.                                This is only for TRAP-K and STEPTRAP-K,S problems.
+#        stepSize: Size of each step trap.                                     This is only for STEPTRAP-K,S problems.
+#     ISGDataFile: Full path to Ising Spin Glasses data file.
+#    bitsPerFloat: Number of bits per float.                                   This is only for DISCRETIZED-RASTRIGIN problems.
+#     clauseRatio: Ratio between the number of clauses and problem size.       This is only for MAXSAT problems.
+#				        clauseRatio = nClauses * stringSize.			     
+#
+
+############# STOPPER ########## STOPPER ########## STOPPER ##############
+#
+#   maxIterations: Maximum number of P3 iterations to perform.
+# maxFitnessCalls: Maximum number of fitness calls to perform.
+#  maxTimeAllowed: Maximum time allowed for a run of P3, in milliseconds.
+#      goodEnough: Proportion of optimum fitness value considered good enough to stop the search.
+#				   NOTE: All fitness values are standardized to the range [0, 1]
+#       foundOnes: Stop if the string of ones was found.                       This criterium is for test UNITATION problems only!
+#		   	          -1 -> Ignore
+#			           0 -> Stop with zeros	(Zero Problems)
+#			           1 -> Stop with ones	( One Problems)  
+#
+
+############# OUTPUT ########## OUTPUT ########## OUTPUT ##############
+#
+#        verbose: Verbose mode prints all currentSolver info in each generation:
+#       	         false -> Non-verbose mode.
+#	                 true  -> Verbose mode.
+#
+
+
+
+
+
+
+
+
+
+
+
+
+
+# End of File!
