@@ -6,7 +6,7 @@ This code is a close translation to Java from the C++ implementation, FastEffici
 To compile you will need a fairly up to date Java compiler. We used Java SE 1.7 for our compilation.
 All the source code is available at the ‘src’ directory.
 
-__________________________________________________________________________________________________________
+_____________________________________________________________________________________
 
 To compile do:
 
@@ -16,7 +16,7 @@ To compile do:
 
     3. Compile with command javac ../src/com/z_P3/*.java -d ./ 
 
-__________________________________________________________________________________________________________
+_____________________________________________________________________________________
 
 To run P3 do:
 
@@ -48,7 +48,7 @@ Some of the options provided by Goldman in the FastEfficientP3 are not available
 
 The Ising Spin Glass problem files are the ones provided by Goldman in https://github.com/brianwgoldman/FastEfficientP3.
 
-__________________________________________________________________________________________________________
+_____________________________________________________________________________________
 
 Each execution of JavaP3 (one or more runs) generates two output files:
 
@@ -56,7 +56,7 @@ Each execution of JavaP3 (one or more runs) generates two output files:
 
     2. P3-STATS_nRuns … .txt  ==> Contains the main statistical information generated in each run of P3. This data can be used to analyze the P3 performance.
 
-__________________________________________________________________________________________________________
+_____________________________________________________________________________________
 
 References
 
